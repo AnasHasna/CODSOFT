@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import cors from "cors";
 import helmet from "helmet";
+import userRoutes from "./routes/userRoute.js";
 import path from "path";
 import connectToDB from "./config/connectToDB.js";
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(cors());
 app.use(cookieParser());
+app.use("/api/users", userRoutes);
 
 // routes
 
